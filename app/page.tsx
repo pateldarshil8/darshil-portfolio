@@ -28,6 +28,16 @@ const RESUME_DATA = {
   },
   experience: [
     {
+      company: "Community Dreams Foundation",
+      role: "Cybersecurity Analyst",
+      dates: "August 2026 - Present",
+      bullets: [
+        "Identified vulnerabilities, implementing security controls, and conducting periodic audits to safeguard organizational assets.",
+        "Defined access privileges and control structures aligned with NIST SP 800-53 frameworks while monitoring systems for abnormalities and reporting violations.",
+        "Prepared performance reports and communicating system status to stakeholders, driving proactive security improvements for mission-driven, client-facing initiatives."
+      ]
+    },
+    {
       company: "Gujarat Technological University - IDEA Lab",
       role: "AI/ML Intern",
       dates: "Jan 2024 – Apr 2024",
