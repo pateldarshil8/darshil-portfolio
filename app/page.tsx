@@ -178,12 +178,14 @@ export default function PortfolioPage() {
                   View Experience <ChevronRight className="ml-2 w-5 h-5" />
                 </Button>
                 <Button
+                  asChild
                   size="lg"
                   variant="outline"
                   className="rounded-full px-8 h-14 text-lg border-white/10 hover:bg-white/5 backdrop-blur-sm"
-                  onClick={() => window.print()}
                 >
-                  Download CV <Download className="ml-2 w-5 h-5" />
+                  <a href="/resume.pdf" download="Darshil-Patel-Resume.pdf">
+                    Download CV <Download className="ml-2 w-5 h-5" />
+                  </a>
                 </Button>
               </div>
             </motion.div>
