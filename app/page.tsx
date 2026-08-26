@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Shield, Database, BarChart3, ChevronRight, Download, 
-  Mail, Phone, MapPin, ExternalLink, Award, BookOpen, Code2 
+import {
+  Shield, Database, BarChart3, ChevronRight, Download,
+  Mail, Phone, MapPin, ExternalLink, Award, BookOpen, Code2, GraduationCap
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -20,21 +20,23 @@ const RESUME_DATA = {
     summary: "Master's student in Cybersecurity at George Washington University with a background in IT and hands-on experience across security, data, and business analysis. Expert in spotting network anomalies and building clean dashboards that translate messy information into stakeholder decisions.",
   },
   skills: {
-    "Security Tools": ["Wireshark", "Metasploit", "Burpsuite", "Nmap"],
-    "Data & Analysis": ["Python", "SQL", "Tableau", "OpenCV", "Matplotlib", "Excel"],
+    "Security Tools": ["Wireshark", "Metasploit", "Burp Suite", "Nmap", "Active Directory"],
+    "Governance & Risk": ["NIST SP 800-53", "NIST CSF 2.0", "ISO 27001", "RMF", "FISMA", "Risk Assessment"],
+    "Data & Analysis": ["Python", "SQL", "Power BI", "Tableau", "Pandas", "Matplotlib", "Excel"],
     "Business Analysis": ["Requirement Gathering", "UML Modeling", "ERD", "SDLC"],
-    "Programming": ["Java", "C", "Linux", "JavaScript", "HTML/CSS", "PHP"],
+    "Programming": ["Java", "C", "Linux", "JavaScript", "TypeScript", "HTML/CSS", "PHP"],
     "Dev Tools": ["Docker", "Git", "VS Code", "IntelliJ", "MySQL", "MongoDB"]
   },
   experience: [
     {
       company: "Community Dreams Foundation",
-      role: "Cybersecurity Analyst",
-      dates: "August 2026 - Present",
+      role: "Cybersecurity Analyst (Volunteer)",
+      dates: "July 2026 - Present",
       bullets: [
-        "Identified vulnerabilities, implementing security controls, and conducting periodic audits to safeguard organizational assets.",
-        "Defined access privileges and control structures aligned with NIST SP 800-53 frameworks while monitoring systems for abnormalities and reporting violations.",
-        "Prepared performance reports and communicating system status to stakeholders, driving proactive security improvements for mission-driven, client-facing initiatives."
+        "Identify and resolve security vulnerabilities to safeguard organizational information system assets and infrastructure.",
+        "Define access privileges and control structures aligned with NIST SP 800-53 security controls.",
+        "Conduct periodic security audits to detect inefficiencies, recognize anomalies, and report policy violations.",
+        "Prepare performance reports and communicate system status to stakeholders across cross-functional teams."
       ]
     },
     {
@@ -42,8 +44,8 @@ const RESUME_DATA = {
       role: "AI/ML Intern",
       dates: "Jan 2024 – Apr 2024",
       bullets: [
-        "Gathered software requirements and designed UI mockups for a Windows-based Photo Gallery using JavaFX.",
-        "Leveraged Python and OpenCV for image processing, using TensorFlow and Keras to optimize models.",
+        "Monitored performance logs and system data to identify anomalies, ensuring reliability and integrity across production systems.",
+        "Maintained structured database records with strict data integrity controls, generating analytical reports to support operational decision-making.",
         "Built facial recognition systems from scratch achieving high accuracy metrics."
       ]
     },
@@ -52,27 +54,54 @@ const RESUME_DATA = {
       role: "Software Application Development Intern",
       dates: "July 2023 – Aug 2023",
       bullets: [
-        "Developed UI prototypes for Windows software applying OOP principles in Java.",
-        "Engineered backend storage using MySQL and JDBC, reducing disk volume and enhancing performance.",
+        "Identified and resolved system inconsistencies through code reviews and log-based performance analysis prior to deployment.",
+        "Analyzed datasets to identify anomalies and performance trends, documenting findings for cross-functional stakeholders.",
         "Engineered a database layer that cut query response time by ~25% through structured indexing."
       ]
     }
   ],
   projects: [
     {
+      title: "GRC Risk Dashboard",
+      tech: "Python, Streamlit, NIST CSF, ISO 27001",
+      bullets: [
+        "Built a live GRC dashboard tracking CVEs, MTTR, and SLA breach alerts, mapped to NIST CSF 2.0 and ISO 27001 controls.",
+        "Automated vulnerability-management reporting to surface control gaps and prioritize remediation."
+      ],
+      link: "https://github.com/pateldarshil8/GRC-Risk-Dashboard"
+    },
+    {
+      title: "AD Access Auditor",
+      tech: "Python, Active Directory, NIST SP 800-53",
+      bullets: [
+        "Built a rule-based auditor that flags stale accounts, privileged group sprawl, and least-privilege/OU-role violations from exported AD data.",
+        "Mapped findings to NIST SP 800-53 controls to support access-control audits and IAM hygiene."
+      ],
+      link: "https://github.com/pateldarshil8/AD-Access-Auditor"
+    },
+    {
+      title: "Reimburse-It (CDF Expense Tracker)",
+      tech: "TypeScript, React, Supabase",
+      bullets: [
+        "Built and shipped an expense reimbursement tracker for Community Dreams Foundation to submit, review, and track requests.",
+        "Remediated a critical Row Level Security privilege-escalation vulnerability in the underlying Supabase schema."
+      ],
+      link: "https://github.com/pateldarshil8/reimburse-it-v2"
+    },
+    {
+      title: "Access Control & Cybersecurity Policy Simulation",
+      tech: "NIST SP 800-53, Policy & SOP Development",
+      bullets: [
+        "Designed a simulated access-management environment enforcing least privilege and need-to-know, processing 50+ user access requests.",
+        "Drafted cybersecurity policy documentation and conducted gap assessments for audit-ready security operations."
+      ]
+    },
+    {
       title: "Facial Emotion Recognition System",
       tech: "Python, OpenCV, TensorFlow, Keras",
       bullets: [
         "Integrated custom-built deep learning networks to evaluate accuracy metrics.",
         "Applied Adam Optimizer in Google Colab GPU environment to refine model weights."
-      ]
-    },
-    {
-      title: "Photo Gallery Album",
-      tech: "Java, JavaFX, MySQL, JDBC",
-      bullets: [
-        "Prepared detailed SDLC documentation including functional/non-functional requirements.",
-        "Optimized disk usage and structural efficiency via integrated MySQL database."
       ]
     }
   ],
@@ -91,9 +120,9 @@ const RESUME_DATA = {
     }
   ],
   certifications: [
-    "Security+ (Sec+) – CompTIA",
-    "Certified in Cybersecurity (CC) – ISC2",
-    "Foundations of Cybersecurity – Google"
+    { name: "Security+ (Sec+) – CompTIA", date: "March 2026" },
+    { name: "Certified in Cybersecurity (CC) – ISC2", date: "March 2025" },
+    { name: "Foundations of Cybersecurity – Coursera, Google", date: "July 2024" }
   ]
 };
 
@@ -112,9 +141,9 @@ export default function PortfolioPage() {
       </AnimatePresence>
 
       {!loading && (
-        <motion.div 
-          initial={{ opacity: 0 }} 
-          animate={{ opacity: 1 }} 
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           className="container mx-auto px-6 py-12"
         >
           {/* HERO SECTION */}
@@ -131,26 +160,26 @@ export default function PortfolioPage() {
                 </span>
                 <span>SYSTEM READY: DARSHIL_PATEL_PORTFOLIO</span>
               </div>
-              
+
               <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-6 bg-gradient-to-b from-white via-white to-white/40 bg-clip-text text-transparent">
                 {RESUME_DATA.basics.name.toUpperCase()}
               </h1>
-              
+
               <p className="max-w-2xl text-xl text-gray-400 mb-10 leading-relaxed">
                 {RESUME_DATA.basics.summary}
               </p>
 
               <div className="flex flex-wrap gap-5">
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 h-14 text-lg"
                   onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   View Experience <ChevronRight className="ml-2 w-5 h-5" />
                 </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
+                <Button
+                  size="lg"
+                  variant="outline"
                   className="rounded-full px-8 h-14 text-lg border-white/10 hover:bg-white/5 backdrop-blur-sm"
                   onClick={() => window.print()}
                 >
@@ -162,8 +191,8 @@ export default function PortfolioPage() {
 
           {/* IMPACT STRIP */}
           <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-32">
-            <ImpactCard icon={<Shield />} title="97% Recognition" detail="Facial emotion accuracy" />
-            <ImpactCard icon={<Database />} title="-30% Disk Usage" detail="Optimized storage logic" />
+            <ImpactCard icon={<Shield />} title="NIST 800-53 Aligned" detail="GRC tools & access audits" />
+            <ImpactCard icon={<Database />} title="3 Security Tools Shipped" detail="AD auditor, GRC dashboard, expense tracker" />
             <ImpactCard icon={<Award />} title="CompTIA Sec+" detail="Certified Practitioner" />
           </section>
 
@@ -194,9 +223,44 @@ export default function PortfolioPage() {
             </Accordion>
           </section>
 
+          {/* PROJECTS SECTION */}
+          <section id="projects" className="mb-32">
+            <SectionHeader number="02" title="Featured Projects" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {RESUME_DATA.projects.map((project, index) => (
+                <Card key={index} className="bg-white/5 border-white/10 backdrop-blur-xl hover:border-blue-500/50 transition-colors">
+                  <CardContent className="p-8">
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="text-2xl font-bold">{project.title}</h4>
+                      {project.link && (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-500 hover:text-blue-400 transition-colors shrink-0 ml-4"
+                          aria-label={`View ${project.title} on GitHub`}
+                        >
+                          <ExternalLink className="w-5 h-5" />
+                        </a>
+                      )}
+                    </div>
+                    <p className="text-blue-400 font-mono text-sm mb-5">{project.tech}</p>
+                    <ul className="space-y-3">
+                      {project.bullets.map((bullet, i) => (
+                        <li key={i} className="flex items-start text-gray-400">
+                          <span className="text-blue-500 mr-4 mt-1.5">/</span> {bullet}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </section>
+
           {/* SKILLS SECTION */}
           <section className="mb-32">
-            <SectionHeader number="02" title="Technical Arsenal" />
+            <SectionHeader number="03" title="Technical Arsenal" />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {Object.entries(RESUME_DATA.skills).map(([category, items]) => (
                 <Card key={category} className="bg-white/5 border-white/10 backdrop-blur-xl">
@@ -215,6 +279,46 @@ export default function PortfolioPage() {
             </div>
           </section>
 
+          {/* EDUCATION & CERTIFICATIONS SECTION */}
+          <section className="mb-32">
+            <SectionHeader number="04" title="Education & Licensure" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card className="bg-white/5 border-white/10 backdrop-blur-xl">
+                <CardContent className="p-8">
+                  <div className="flex items-center gap-3 mb-6 text-blue-400">
+                    <GraduationCap className="w-5 h-5" />
+                    <h4 className="font-mono text-sm uppercase tracking-widest">Education</h4>
+                  </div>
+                  <div className="space-y-6">
+                    {RESUME_DATA.education.map((edu, index) => (
+                      <div key={index}>
+                        <h5 className="text-lg font-bold">{edu.school}</h5>
+                        <p className="text-gray-400">{edu.degree}</p>
+                        <p className="text-gray-500 text-sm font-mono mt-1">{edu.date} · GPA {edu.gpa}</p>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+              <Card className="bg-white/5 border-white/10 backdrop-blur-xl">
+                <CardContent className="p-8">
+                  <div className="flex items-center gap-3 mb-6 text-blue-400">
+                    <Award className="w-5 h-5" />
+                    <h4 className="font-mono text-sm uppercase tracking-widest">Certifications</h4>
+                  </div>
+                  <div className="space-y-6">
+                    {RESUME_DATA.certifications.map((cert, index) => (
+                      <div key={index}>
+                        <h5 className="text-lg font-bold">{cert.name}</h5>
+                        <p className="text-gray-500 text-sm font-mono mt-1">{cert.date}</p>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
           {/* CONTACT FOOTER */}
           <footer className="border-t border-white/10 pt-20 pb-10">
             <div className="flex flex-col md:flex-row justify-between items-start gap-10">
@@ -228,7 +332,7 @@ export default function PortfolioPage() {
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-sm font-mono text-gray-500">© 2024 DARSHIL PATEL</p>
+                <p className="text-sm font-mono text-gray-500">© 2026 DARSHIL PATEL</p>
                 <p className="text-sm font-mono text-gray-500 mt-2">BUILT WITH NEXT.JS + TAILWIND</p>
               </div>
             </div>
@@ -242,12 +346,12 @@ export default function PortfolioPage() {
 // SUPPORTING COMPONENTS
 function SplashScreen() {
   return (
-    <motion.div 
+    <motion.div
       className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#020204]"
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.8 }}
     >
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         className="text-5xl font-black tracking-tighter text-white mb-8"
@@ -255,7 +359,7 @@ function SplashScreen() {
         DP<span className="text-blue-600">.</span>
       </motion.div>
       <div className="w-48 h-[2px] bg-white/10 rounded-full overflow-hidden">
-        <motion.div 
+        <motion.div
           className="h-full bg-blue-600"
           initial={{ width: 0 }}
           animate={{ width: "100%" }}
