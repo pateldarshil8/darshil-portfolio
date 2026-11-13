@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, ArrowUpRight, Github, Mail, MapPin, Phone } from "lucide-react";
+import { Download, ArrowUpRight, GitFork, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 /* ────────────────────────────────────────────────────────────────────────
@@ -426,7 +426,7 @@ export default function Home() {
               rel="noreferrer"
               className="flex items-center gap-2 text-[#6D5BFF] transition hover:opacity-75"
             >
-              <Github className="h-4 w-4" /> GitHub <ArrowUpRight className="h-3.5 w-3.5" />
+              <GitFork className="h-4 w-4" /> GitHub <ArrowUpRight className="h-3.5 w-3.5" />
             </a>
           </div>
         </div>
