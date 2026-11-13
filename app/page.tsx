@@ -28,14 +28,14 @@ const HERO = {
 
 const CODE_CARD = {
   role: "Security / AI / Data / SWE",
-  gpa: "3.6",
+  gpa: "3.5",
   certs: ["Security+", "ISC2 CC"],
   shipped: 6,
   status: "open to offers",
 };
 
 const STATS = [
-  { value: "3.6", label: "GPA, MS Cybersecurity", color: "accent" },
+  { value: "3.5", label: "GPA, MS Cybersecurity", color: "accent" },
   { value: "6", label: "Tools shipped to production", color: "lime" },
   { value: "2", label: "Hackathon builds", color: "accent" },
   { value: "2", label: "Active certifications", color: "lime" },
@@ -120,7 +120,7 @@ const EDUCATION = [
   {
     degree: "MS in Cybersecurity",
     school: "The George Washington University",
-    period: "Expected May 2026 · GPA 3.6",
+    period: "May 2026 · GPA 3.5",
   },
   {
     degree: "BTech in Information Technology",
@@ -130,8 +130,16 @@ const EDUCATION = [
 ];
 
 const CERTIFICATIONS = [
-  { name: "CompTIA Security+", date: "Active" },
-  { name: "ISC2 Certified in Cybersecurity (CC)", date: "Active" },
+  {
+    name: "CompTIA Security+",
+    date: "Active",
+    href: "https://www.credly.com/badges/176154db-b65a-4e4f-a352-4210c693a97e/public_url",
+  },
+  {
+    name: "ISC2 Certified in Cybersecurity (CC)",
+    date: "Active",
+    href: "https://www.credly.com/badges/f44b4878-12c0-4cef-a0bd-be81db6fec82/public_url",
+  },
 ];
 
 const CONTACT = {
@@ -390,10 +398,19 @@ export default function Home() {
                 CERTIFICATIONS
               </span>
               {CERTIFICATIONS.map((c) => (
-                <div key={c.name} className="flex items-center justify-between gap-4">
-                  <p className="text-[15px] font-semibold">{c.name}</p>
+                <a
+                  key={c.name}
+                  href={c.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group flex items-center justify-between gap-4 transition hover:opacity-80"
+                >
+                  <p className="flex items-center gap-1.5 text-[15px] font-semibold">
+                    {c.name}
+                    <ArrowUpRight className="h-3.5 w-3.5 text-[#9A9AA2] opacity-0 transition group-hover:opacity-100" />
+                  </p>
                   <p className="text-[12.5px] text-[#9A9AA2]">{c.date}</p>
-                </div>
+                </a>
               ))}
             </div>
           </div>
