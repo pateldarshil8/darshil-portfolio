@@ -56,6 +56,20 @@ const EXPERIENCE = [
     description:
       "Prepare employment and status documentation for volunteers and alumni — cross-functional work outside of a pure technical track.",
   },
+  {
+    role: "AIML Intern",
+    org: "Gujarat Technological University — IDEA Lab",
+    period: "Jan 2024 – Apr 2024",
+    description:
+      "Monitored performance logs and system data to identify anomalies, ensuring reliability and integrity across production systems; maintained structured database records with strict data integrity controls, generating analytical reports to support operational decision-making.",
+  },
+  {
+    role: "Software Application Development Intern",
+    org: "WeTheDevelopers",
+    period: "Jul 2023 – Aug 2023",
+    description:
+      "Identified and resolved system inconsistencies through code reviews and log-based performance analysis prior to deployment; analyzed datasets to identify anomalies and performance trends, documenting findings for cross-functional stakeholders.",
+  },
 ] as const;
 
 const PROJECTS = [
